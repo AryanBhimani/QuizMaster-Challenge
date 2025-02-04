@@ -22,11 +22,12 @@ class _QuizScreenState extends State<QuizScreen> {
   InterstitialAd? _interstitialAd;
   RewardedAd? _rewardedAd;
 
+  // final String _adAppId = 'ca-app-pub-3940256099942544~3347511713';
   // ignore: unused_field
-  final String _adAppId = 'ca-app-pub-3940256099942544~3347511713';
-  final String _bannerAdId = 'ca-app-pub-3940256099942544/6300978111';
-  final String _interstitialAdId = 'ca-app-pub-3940256099942544/1033173712';
-  final String _rewardedAdId = 'ca-app-pub-3940256099942544/5224354917';
+  final String _adAppId = 'ca-app-pub-4362785321861304/8408744148';
+  final String _bannerAdId = 'ca-app-pub-4362785321861304/8408744148';
+  final String _interstitialAdId = 'ca-app-pub-4362785321861304/1108273971';
+  final String _rewardedAdId = 'ca-app-pub-4362785321861304/3727871913';
 
   @override
   void initState() {
@@ -152,8 +153,7 @@ class _QuizScreenState extends State<QuizScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 88, 226, 60),
-
+        backgroundColor: const Color.fromARGB(255, 88, 226, 60),
         title: const Text('QuizMaster Challenge'),
         actions: [
           IconButton(
