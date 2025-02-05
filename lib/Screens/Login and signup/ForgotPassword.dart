@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:quizmaster_challenge/Screens/Login%20and%20signup/Login.dart';
+import 'package:quizmaster_challenge/Services/Button.dart';
 import 'package:quizmaster_challenge/Services/Colors.dart';
 
 class ForgotPassword extends StatefulWidget {
@@ -103,8 +104,9 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                       ),
                     ),
                     const SizedBox(height: 40.0),
-                    GestureDetector(
-                      onTap: () {
+                    Button(
+                      label: "Send Reset Email", 
+                      onPressed: () {
                         if (_formkey.currentState!.validate()) {
                           setState(() {
                             email = mailcontroller.text;
@@ -112,24 +114,6 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                           resetPassword();
                         }
                       },
-                      child: Container(
-                        width: double.infinity,
-                        padding: const EdgeInsets.all(15),
-                        decoration: BoxDecoration(
-                          color: green,  // Keep the button color for the "Send Email"
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: const Center(
-                          child: Text(
-                            "Send Reset Email",
-                            style: TextStyle(
-                              color: black,
-                              fontSize: 18.0,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                      ),
                     ),
                     const SizedBox(height: 50.0),
                     Row(
