@@ -157,7 +157,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        centerTitle: true,
+        // centerTitle: true,
         backgroundColor: green,
         foregroundColor: white,
         title: const Text('QuizMaster Challenge'),
