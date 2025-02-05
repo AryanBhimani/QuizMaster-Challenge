@@ -1,17 +1,20 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:html_unescape/html_unescape.dart';
+import 'package:quizmaster_challenge/Screens/Login%20and%20signup/Login.dart';
+import 'package:quizmaster_challenge/Services/Colors.dart';
 
-class QuizScreen extends StatefulWidget {
-  const QuizScreen({super.key});
+class Home extends StatefulWidget {
+  const Home({super.key});
 
   @override
-  _QuizScreenState createState() => _QuizScreenState();
+  _HomeState createState() => _HomeState();
 }
 
-class _QuizScreenState extends State<QuizScreen> {
+class _HomeState extends State<Home> {
   
   final HtmlUnescape _htmlUnescape = HtmlUnescape();
   List<Question> _questions = [];
@@ -22,7 +25,6 @@ class _QuizScreenState extends State<QuizScreen> {
   InterstitialAd? _interstitialAd;
   RewardedAd? _rewardedAd;
 
-  // final String _adAppId = 'ca-app-pub-3940256099942544~3347511713';
   // ignore: unused_field
   final String _adAppId = 'ca-app-pub-4362785321861304/8408744148';
   final String _bannerAdId = 'ca-app-pub-4362785321861304/8408744148';
@@ -149,18 +151,29 @@ class _QuizScreenState extends State<QuizScreen> {
     super.dispose();
   }
 
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+ 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 88, 226, 60),
+        centerTitle: true,
+        backgroundColor: green,
+        foregroundColor: white,
         title: const Text('QuizMaster Challenge'),
         actions: [
           IconButton(
             icon: const Icon(Icons.help_outline),
             onPressed: _showRewardedAd,
             tooltip: 'QuizMaster Challenge',
-          )
+          ),
+          IconButton(
+            icon: const Icon(Icons.logout),
+            onPressed: () async {
+              await _auth.signOut();
+              Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => const Login()));
+            },
+          ),
         ],
       ),
       body: _isLoading
