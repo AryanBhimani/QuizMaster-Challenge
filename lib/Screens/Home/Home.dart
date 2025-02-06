@@ -22,7 +22,7 @@ class _HomeState extends State<Home> {
   bool _isLoading = true;
   BannerAd? _bannerAd;
 
-  final String _bannerAdId = 'ca-app-pub-3940256099942544/6300978111'; // Test ID
+  final String _bannerAdId = 'ca-app-pub-4362785321861304/8408744148'; // Test ID
 
   @override
   void initState() {
